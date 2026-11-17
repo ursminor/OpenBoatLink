@@ -4,7 +4,7 @@
 
 # OBL Corporate Identity
 
-Version 1.4, 2026-11-16. Logos in `logo/`, images of this document in `img/`.
+Version 1.5, 2026-11-17. Logos in `logo/`, images of this document in `img/`.
 
 ## Principle
 
@@ -127,11 +127,12 @@ Slides: names 14 pt bold, labels 12 pt, captions not below 10 pt.
 - Flat side-view silhouettes in OBL Blue. No outlines, no shading, no gradients. Each object on a short waterline in line-strong.
 - Each physical object has exactly one orange part: race committee flag, boat hull, RIB hull, mark (pyramid), gateway unit. Sails, cabins, masts, consoles stay blue. Abstract symbols (internet cloud) blue only.
 - Boat: hull, mainsail, jib only, so it reads as dinghy or yacht. Mark: pyramid. RIB: hull, console, outboard. Shore gateway: pole with antenna (radome) and unit on a hatched ground line. Internet: cloud.
-- Radio links: dashed blue, 1.75 pt, arrowheads show direction. Wired links (internet) solid, routed at right angles, never in line with an antenna.
+- Radio links: blue, 1.75 pt, arrowheads show direction. The pattern shows the radio mode: HB (high bandwidth) fine round dots, LR (long range) dashes, LoRa long dashes; the longer the mark, the slower the mode and the longer its range. Add a legend. Wired links (internet) solid, routed at right angles, never in line with an antenna.
+- Two-way links in different radio modes: two parallel lines, one per direction.
 - Names 14 pt bold ink; link labels 12 pt ink-muted. Two-way links with different content: label each direction with → and ←.
 - No decorative patterns such as slot grids or bit patterns: they read as Morse code.
 
-![Pictograms on the use-case slide](img/pictograms.jpg)
+![Pictograms and radio links on the use-case slide](img/overview.svg)
 
 ## Writing
 
@@ -148,7 +149,7 @@ GitHub sets its own fonts and colours. The identity shows in three elements:
 - Header band on every other page: blue field, white lockup, linked to the start page (`img/header.svg`).
 - Meta row under the title: version, ISO date, licence in code style, then the status tag (`img/tag-draft.svg`).
 
-The overview picture on the start page is the pictogram slide without its title (`img/overview.jpg`).
+The overview picture on the start page is the use-case slide without its title (`img/overview.svg`).
 
 ## Files
 
@@ -156,7 +157,7 @@ The overview picture on the start page is the pictogram slide without its title 
 | --- | --- |
 | Logos SVG: lettermark, lockup (blue, white, black), icon, tier 1–3 | `logo/svg` |
 | The same as PNG, and the icon in 32, 180 and 512 px | `logo/png` |
-| Banner, header band, draft tag and overview picture for GitHub pages | `img/banner.svg`, `img/header.svg`, `img/tag-draft.svg`, `img/overview.jpg` |
+| Banner, header band, draft tag and overview picture for GitHub pages | `img/banner.svg`, `img/header.svg`, `img/tag-draft.svg`, `img/overview.svg` |
 | Images in this document | `img` |
 | Fonts | IBM Plex Sans and IBM Plex Mono from [github.com/IBM/plex](https://github.com/IBM/plex); not copied here |
 
@@ -168,6 +169,7 @@ All SVGs are outlined; no font needed to display them.
 
 ## Change log
 
+- 1.5: one line pattern per radio mode (HB, LR, LoRa); overview picture as SVG.
 - 1.4: moved to GitHub (`brand/`); section "On GitHub"; file locations updated.
 - 1.3: code licence Apache 2.0 instead of MIT.
 - 1.2: illustrations added (construction, logo variants, colours, type, document elements, pictograms); header logo on blue.

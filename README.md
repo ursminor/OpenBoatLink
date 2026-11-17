@@ -2,11 +2,13 @@
 
 **OpenBoatLink (OBL)** is an open radio protocol for boats. One radio link carries live tracking, electronic starts, umpiring support, coaching data and safety functions, and devices from different manufacturers work together.
 
-`v0.7` &nbsp; `2026-11-16` &nbsp; `CC BY 4.0` &nbsp; <img src="brand/img/tag-draft.svg" alt="Draft" height="20" align="absmiddle">
+`v0.7` &nbsp; `2026-11-17` &nbsp; `CC BY 4.0` &nbsp; <img src="brand/img/tag-draft.svg" alt="Draft" height="20" align="absmiddle">
 
 ## At a glance
 
-<p><img src="brand/img/overview.jpg" alt="Race committee, marks, boats, coach boats and a shore gateway, linked by radio" width="100%"></p>
+<p><img src="brand/img/overview.svg" alt="Race committee, mark, boats, coach boat and shore gateway, linked by radio. Line styles show the radio mode: HB, LR or LoRa" width="100%"></p>
+
+What each part sends, and in which mode: [System overview](spec/03-system-overview.md#components).
 
 Each boat carries a small device with satellite positioning and radio. Boats, marks, the race committee and coach boats receive each other directly, without internet.
 
@@ -20,15 +22,16 @@ Each boat carries a small device with satellite positioning and radio. Boats, ma
 
 ## Read on
 
-Three short pages. Each starts with a summary in plain words.
+Three short pages and the FAQ. Each starts with a summary in plain words.
 
 | | Page | What it tells you |
 | --- | --- | --- |
 | 1 | [Motivation and use cases](spec/01-motivation-and-use-cases.md) | Why an open protocol, and what it is used for on the water |
 | 2 | [Requirements and performance tiers](spec/02-requirements-and-tiers.md) | What the system must deliver, and which device tier suits which event |
 | 3 | [System overview](spec/03-system-overview.md) | The parts of the system and how they work together |
+|  | [FAQ](spec/faq.md) | Why this radio band, why not AIS or mobile network trackers, and what a device costs |
 
-These pages are the first five chapters of the specification. The technical chapters (radio, messages, security, racing procedures) are still being edited and will follow here.
+These pages are the first five chapters of the specification and its FAQ; the sources are listed under [References](spec/references.md). The technical chapters (radio, messages, security, racing procedures) are still being edited and will follow here.
 
 ## Status
 

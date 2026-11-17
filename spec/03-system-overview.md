@@ -4,23 +4,27 @@
 
 # System overview
 
-`v0.7` &nbsp; `2026-11-16` &nbsp; `CC BY 4.0` &nbsp; <img src="../brand/img/tag-draft.svg" alt="Draft" height="20" align="absmiddle">
+`v0.7` &nbsp; `2026-11-17` &nbsp; `CC BY 4.0` &nbsp; <img src="../brand/img/tag-draft.svg" alt="Draft" height="20" align="absmiddle">
 
 > **In short.** Each boat carries a small device with satellite positioning and radio. Boats, marks, the race committee and coach boats receive each other directly, without internet. This page names the parts of the system and explains the principle; the radio details follow in later chapters.
 
-OBL builds on techniques proven in other fields: electronic conspicuity of aircraft in the 860 MHz band (EASA ADS-L 4 SRD-860) and the tracking protocol of the Open Glider Network (OGN); collision warning systems for mining and construction machinery (requirements: ISO 21815); and dead reckoning with report-by-exception from distributed interactive simulation (IEEE 1278.1). See References. For race management, OBL provides the functions of an Augmented Race Management System (ARMS), the World Sailing term for electronic start timing and OCS identification.
+OBL builds on proven techniques. More than 150,000 aircraft and mining vehicles already exchange data for safety and productivity with similar protocols, such as FLARM and ADS-L, the EASA specification for electronic conspicuity of aircraft (see [References](references.md)).
+
+For race management, OBL provides the functions of an Augmented Race Management System (ARMS), the World Sailing term for electronic start timing and OCS identification.
 
 ## Components
 
-<p><img src="../brand/img/overview.jpg" alt="Race committee, mark, boats, coach boat and shore gateway, linked by radio" width="100%"></p>
+<p><img src="../brand/img/overview.svg" alt="Race committee, mark, boats, coach boat and shore gateway, linked by radio. Line styles show the radio mode: HB, LR or LoRa" width="100%"></p>
 
-Schematic. Dashed lines are radio links; the solid line is an internet connection.
+Schematic. The parts of the system and the radio modes they use; the line in the picture shows the mode (details under [Principle of operation](#principle-of-operation)):
 
-- **Boat node:** GNSS receiver and sub-GHz transceiver on each boat, standalone or built into other equipment such as race computers or instruments. Sends tracking, information, telemetry, start, finish and zone report messages; receives race management and RTK messages.
-- **Infrastructure nodes:** equipment of the organizing authority. Committee node (race management, optional RTK base node), mark nodes on anchored or robotic marks (tracking, telemetry, weather), umpire, coach and rescue boats (receivers, optional relay nodes).
-- **Relay nodes:** infrastructure nodes that retransmit selected packets once to extend coverage. Boat nodes do not relay.
-- **Gateway nodes:** receivers that forward radio traffic to the internet and inject shore traffic into infrastructure slots (see Gateways).
-- **Backend:** aggregation, live tracking, storage and replay. Out of scope of this specification.
+| Part | What it is | Radio mode, line in the picture |
+| --- | --- | --- |
+| **Boat node** | GNSS receiver and sub-GHz transceiver on each boat, standalone or built into other equipment such as race computers or instruments. Sends tracking, information, telemetry, start, finish and zone report messages; receives race management and RTK messages. | **HB**, high bandwidth, fine dots: fast, short range. Everything the boat sends, apart from LoRa.<br>**LoRa**, long dashes: very slow, longest range. Its position every 10 to 45 s, with track points much denser. |
+| **Infrastructure nodes** | Equipment of the organizing authority. Committee node (race management, optional RTK base node), mark nodes on anchored or robotic marks (tracking, telemetry, weather), umpire, coach and rescue boats (receivers, optional relay nodes). | **LR**, long range, dashes: slower, reaches the whole course. Broadcasts of the race committee, marks and shore stations.<br>**LoRa**, long dashes: commands to robotic marks and their answers, also 5 km and more from the committee boat. |
+| **Relay nodes** | Infrastructure nodes that retransmit selected packets once to extend coverage. Boat nodes do not relay. | The mode of the packet they relay, HB or LR. In LoRa they relay only distress calls and mark control, not routine tracking. |
+| **Gateway nodes** | Receivers that forward radio traffic to the internet and inject shore traffic into infrastructure slots (see Gateways). | Receive HB, LR and LoRa; send in LR, for example RTK corrections and weather. Internet, solid line. |
+| **Backend** | Aggregation, live tracking, storage and replay. Out of scope of this specification. | Internet, solid line. |
 
 ## Principle of operation
 
@@ -30,7 +34,7 @@ Devices choose free slots based on what they receive (occupancy map) and keep a 
 
 A position takes 40 bits at 4.44 cm resolution (relative coordinate encoding). Speed and rate of turn use nonlinear exponential encoding. Each device predicts its own track from its last transmitted report and sends an extra report only when the actual position deviates from the prediction (extrapolation-based reporting). Receivers use the same prediction between reports. Under high load, boats on steady courses report less often and leave airtime to boats that manoeuvre. The chapter Capacity and scaling gives the budget.
 
-In addition, every boat sends a LoRa packet every 10 to 45 s with its latest fix and its recent track. LoRa reaches much further than the GFSK modes and covers the whole course, also in races over long distances (see LoRa tracking).
+In addition, every boat sends a LoRa packet every 10 to 45 s with its latest fix and its recent track. The packets are sparse, but the track is dense: each packet adds five track points, four of them where the boat turned, and the curve through them follows her path typically within 0.3 to 2 m. LoRa reaches much further than the GFSK modes and covers the whole course, also in races over long distances (see LoRa tracking).
 
 ## Zero configuration
 
@@ -44,6 +48,6 @@ Without infrastructure in range, a device uses defaults. Only the organizer's eq
 
 ---
 
-← [Requirements and performance tiers](02-requirements-and-tiers.md) &nbsp;·&nbsp; [Contents](README.md) →
+← [Requirements and performance tiers](02-requirements-and-tiers.md) &nbsp;·&nbsp; [FAQ](faq.md) →
 
 Chapters named after "see" that are not listed in the [contents](README.md) are not published here yet.
