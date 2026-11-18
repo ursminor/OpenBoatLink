@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenBoatLink (OBL) – open radio protocol for boats</title>
+<meta name="description" content="OpenBoatLink (OBL) is an open radio protocol for boats: live tracking, electronic starts, umpiring, coaching data and safety over one radio link, without internet. Draft specification.">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/logo/png/obl-icon-32.png">
+<link rel="apple-touch-icon" href="brand/logo/png/obl-icon-180.png">
+<meta property="og:title" content="OpenBoatLink (OBL)">
+<meta property="og:description" content="Open radio protocol for boats. Draft specification.">
+<meta property="og:image" content="https://openboatlink.org/brand/logo/png/obl-icon-512.png">
+<meta property="og:url" content="https://openboatlink.org/">
+<style>
+@font-face{font-family:"IBM Plex Sans";font-weight:400;font-display:swap;src:url(web/fonts/IBMPlexSans-Regular-Latin1.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:600;font-display:swap;src:url(web/fonts/IBMPlexSans-SemiBold-Latin1.woff2) format("woff2")}
+:root{--blue:#0D3A8E;--blue-fill:#0D3A8E;--blue-tint:#E5EBF6;--ink:#0B1324;--ink-muted:#4A5670;--surface:#FFFFFF;--line:#CFD6E2}
+@media (prefers-color-scheme:dark){:root{--blue:#86A8EE;--blue-fill:#1A4AA8;--blue-tint:#11234A;--ink:#E8EDF7;--ink-muted:#A5B1C8;--surface:#08132B;--line:#26385E}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);font:400 15px/24px "IBM Plex Sans",Arial,sans-serif}
+a{color:var(--blue)}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+header{background:var(--blue-fill)}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+header .wrap{padding-top:32px;padding-bottom:32px}
+header img{height:40px;width:auto;display:block}
+h1{font-size:40px;line-height:44px;font-weight:600;margin:48px 0 24px;padding-bottom:16px;border-bottom:2px solid var(--blue)}
+h2{font-size:20px;line-height:28px;font-weight:600;margin:48px 0 12px}
+p{max-width:68ch;margin:0 0 16px}
+figure{margin:24px 0}
+figure img{width:100%;height:auto;display:block}
+figcaption{font-size:13px;line-height:20px;color:var(--ink-muted);margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:13px;line-height:20px}
+th{background:var(--blue-tint);text-align:left;font-size:11px;line-height:16px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:8px 12px}
+td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{white-space:nowrap;font-weight:600}
+ul.links{list-style:none;padding:0;margin:0}
+ul.links li{padding:12px 0;border-bottom:1px solid var(--line)}
+ul.links a{font-weight:600}
+ul.links span{display:block;color:var(--ink-muted);font-size:13px;line-height:20px}
+@media (max-width:600px){h1{font-size:28px;line-height:34px;margin-top:32px}td:first-child{white-space:normal}}
+footer{margin:48px 0;padding-top:16px;border-top:1px solid var(--line);font-size:13px;line-height:20px;color:var(--ink-muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="./"><img src="brand/logo/svg/obl-lockup-white.svg" alt="OBL OpenBoatLink"></a></div></header>
+<main class="wrap">
+<h1>Open radio protocol for boats</h1>
+
+<p><strong>OpenBoatLink (OBL)</strong> is an open radio protocol for boats. One radio link carries live tracking, electronic starts, umpiring support, coaching data and safety functions, and devices from different manufacturers work together.</p>
+<p>Each boat carries a small device with satellite positioning and radio. Boats, marks, the race committee and coach boats receive each other directly, without internet.</p>
+
+<figure>
+<a href="brand/img/overview.svg"><img src="brand/img/overview.svg" alt="Race committee, mark, boats, coach boat and shore gateway, linked by radio. Line styles show the radio mode: HB, LR or LoRa"></a>
+<figcaption>Schematic. What each part sends, and in which mode: <a href="https://github.com/ursminor/OpenBoatLink/blob/main/spec/03-system-overview.md#components">System overview</a>.</figcaption>
+</figure>
+
+<h2>What OBL gives you</h2>
+<table>
+<thead><tr><th>For</th><th>What OBL gives you</th></tr></thead>
+<tbody>
+<tr><td>Sailors</td><td>Countdown and distance to the starting line on board. A signal to your boat if you are on the course side at the start (OCS). Live tracking and replay.</td></tr>
+<tr><td>Race committees</td><td>Start sequence, recalls, course changes and finishes over one radio link that reaches every boat.</td></tr>
+<tr><td>Umpires and coaches</td><td>Positions, headings and sensor data of the boats in real time.</td></tr>
+<tr><td>Clubs and organisers</td><td>Affordable devices, no set-up on the boats, and one system from club racing to the Olympic Games.</td></tr>
+<tr><td>Manufacturers</td><td>A public, royalty-free specification and a shared code library.</td></tr>
+</tbody>
+</table>
+
+<h2>Read and take part</h2>
+<ul class="links">
+<li><a href="https://github.com/ursminor/OpenBoatLink/tree/main/spec">Specification</a><span>Motivation, requirements and tiers, system overview, FAQ. Technical chapters follow.</span></li>
+<li><a href="https://github.com/ursminor/OpenBoatLink/discussions">Discussions</a><span>Questions, ideas and proposals.</span></li>
+<li><a href="https://github.com/ursminor/OpenBoatLink/issues">Issues</a><span>Corrections and concrete change requests to the specification.</span></li>
+<li><a href="https://github.com/ursminor/OpenBoatLink">Repository on GitHub</a><span>Source of the specification, brand guide and licence.</span></li>
+</ul>
+
+<h2>Status</h2>
+<p>Draft v0.7, 2026-11-17. Wording and values can change until version 1.0.</p>
+
+<footer>
+Specification text <a href="https://github.com/ursminor/OpenBoatLink/blob/main/LICENSE">CC BY 4.0</a>. Code, once published: Apache License 2.0. Name, logo and conformance marks: see the <a href="https://github.com/ursminor/OpenBoatLink/tree/main/brand">brand guide</a>.
+</footer>
+</main>
+</body>
+</html>
