@@ -45,4 +45,6 @@ Draft v0.7. Wording and values can change until version 1.0.
 
 ## Feedback
 
-Questions, comments and corrections are welcome as [issues](https://github.com/ursminor/OpenBoatLink/issues).
+Questions and ideas are welcome in [Discussions](https://github.com/ursminor/OpenBoatLink/discussions), corrections as [issues](https://github.com/ursminor/OpenBoatLink/issues).
+
+Contact: info (at) openboatlink.org
